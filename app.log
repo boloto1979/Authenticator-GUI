@@ -11,3 +11,24 @@
 2023-04-24 18:28:25,463 - INFO - Senha correta
 2023-04-24 18:30:51,624 - INFO - Senha correta
 2023-04-24 18:31:03,265 - INFO - Nova senha criada
+2023-04-24 18:44:22,484 - WARNING - Senha incorreta
+2023-04-24 18:44:30,212 - INFO - Senha correta
+2023-04-24 18:44:40,452 - INFO - Nova senha criada
+2023-04-24 18:44:43,804 - WARNING - Senha incorreta
+2023-04-24 18:44:52,956 - INFO - Senha correta
+2023-04-24T23:59:48.094570-0300 - WARNING - Senha incorreta
+2023-04-24T23:59:58.542994-0300 - INFO - Nova senha criada
+2023-04-25T00:00:08.446535-0300 - INFO - Senha correta
+2023-04-25T00:08:17.563098-0300 - INFO - Senha correta
+2023-04-25T00:08:22.810981-0300 - WARNING - Senha incorreta
+2023-04-25T00:08:27.504966-0300 - INFO - Senha correta
+2023-04-25T00:13:19.892301-0300 - INFO - Iniciando o aplicativo
+2023-04-25T00:13:29.013693-0300 - INFO - Senha correta
+2023-04-25T00:17:38.920176-0300 - INFO - Encerrando o aplicativo
+2023-04-25T00:18:12.166930-0300 - WARNING - Senha não informada
+2023-04-25T00:18:13.574976-0300 - WARNING - Nova senha não informada
+2023-04-25T00:18:22.095110-0300 - INFO - Senha correta
+2023-04-25T00:18:30.671474-0300 - INFO - Nova senha criada
+2023-04-25T00:18:32.895128-0300 - INFO - Senha correta
+2023-04-25T00:18:37.399677-0300 - WARNING - Senha incorreta
+2023-04-25T00:18:41.295186-0300 - INFO - Senha correta
