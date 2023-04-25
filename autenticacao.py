@@ -2,11 +2,18 @@ import tkinter as tk
 import tkinter.messagebox as tkmessagebox
 import hashlib
 from loguru import logger
+from collections import deque
+from datetime import datetime, timedelta
+from argon2 import PasswordHasher
+from argon2.exceptions import VerifyMismatchError
 
 
 class Authenticator:
     def __init__(self):
         self.password = self.load_password()
+        self.failed_attempts = deque([], maxlen=5)
+        self.lockout_timer = None
+        self.ph = PasswordHasher()
 
     def load_password(self):
         try:
@@ -20,11 +27,26 @@ class Authenticator:
             f.write(password)
 
     def check_password(self, password):
-        return hashlib.sha256(password.encode('utf-8')).hexdigest() == self.password
+        try:
+            self.ph.verify(self.password, password)
+            return True
+        except VerifyMismatchError:
+            self.failed_attempts.append(datetime.now())
+            return False
 
     def change_password(self, password):
-        self.password = hashlib.sha256(password.encode('utf-8')).hexdigest()
+        self.password = self.ph.hash(password)
         self.save_password(self.password)
+        self.failed_attempts.clear()
+        self.lockout_timer = None
+
+    def is_locked_out(self):
+        if len(self.failed_attempts) < 5:
+            return False
+        oldest_attempt = self.failed_attempts[0]
+        if self.lockout_timer is None or datetime.now() >= self.lockout_timer:
+            self.lockout_timer = oldest_attempt + timedelta(minutes=1)
+        return True
 
 
 class GUI:
@@ -56,6 +78,10 @@ class GUI:
             logger.warning('Senha não informada')
             self.error_label.config(text="Por favor, informe a senha")
             return
+        if self.authenticator.is_locked_out():
+            logger.warning('Usuário temporariamente bloqueado')
+            self.error_label.config(text="O acesso foi temporariamente bloqueado. Tente novamente mais tarde.")
+            return
         if self.authenticator.check_password(password):
             logger.info('Senha correta')
             self.error_label.config(text="")
@@ -63,6 +89,9 @@ class GUI:
         else:
             logger.warning('Senha incorreta')
             self.error_label.config(text="Senha incorreta")
+            if self.authenticator.is_locked_out():
+                logger.warning('Usuário bloqueado após 5 tentativas falhas')
+                self.error_label.config(text="O acesso foi temporariamente bloqueado. Tente novamente mais tarde.")
 
     def new_password(self):
         password = self.new_password_entry.get()

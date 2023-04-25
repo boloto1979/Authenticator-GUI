@@ -32,3 +32,15 @@
 2023-04-25T00:18:32.895128-0300 - INFO - Senha correta
 2023-04-25T00:18:37.399677-0300 - WARNING - Senha incorreta
 2023-04-25T00:18:41.295186-0300 - INFO - Senha correta
+2023-04-25T00:37:27.470393-0300 - WARNING - Nova senha não informada
+2023-04-25T00:37:29.614304-0300 - ERROR - A nova senha deve ter pelo menos 8 caracteres e pelo menos um número
+2023-04-25T00:37:38.028017-0300 - INFO - Nova senha criada
+2023-04-25T00:37:44.695114-0300 - WARNING - Senha incorreta
+2023-04-25T00:37:45.430649-0300 - WARNING - Senha incorreta
+2023-04-25T00:37:45.942759-0300 - WARNING - Senha incorreta
+2023-04-25T00:37:46.361883-0300 - WARNING - Senha incorreta
+2023-04-25T00:37:46.569784-0300 - WARNING - Senha incorreta
+2023-04-25T00:37:46.570444-0300 - WARNING - Usuário bloqueado após 5 tentativas falhas
+2023-04-25T00:37:46.733538-0300 - WARNING - Usuário temporariamente bloqueado
+2023-04-25T00:37:55.149157-0300 - WARNING - Usuário temporariamente bloqueado
+2023-04-25T00:37:55.893258-0300 - WARNING - Usuário temporariamente bloqueado
